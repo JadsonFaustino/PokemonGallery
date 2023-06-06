@@ -53,7 +53,8 @@ const pokeRequest = (urlPokeRequest) => {
                 const pokemonUrl = pokemon.url.split("/");
                 const pokemonId = pokemonUrl[pokemonUrl.length - 2];
                 
-                const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
+                let imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
+
                 const infoUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
                 const evolutionUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`;
                 let evolutions = "";
@@ -72,6 +73,9 @@ const pokeRequest = (urlPokeRequest) => {
 
                 const imgElement = document.createElement("img");
                 imgElement.src = imageUrl;
+                imgElement.onerror = function() {
+                    imgElement.src = 'default.png';
+                };
 
                 const indexElement = document.createElement("span");
                 indexElement.textContent = ("0000" + pokemonIdLabel).slice(-4);
