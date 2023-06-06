@@ -74,7 +74,7 @@ const pokeRequest = (urlPokeRequest) => {
                 imgElement.src = imageUrl;
 
                 const indexElement = document.createElement("span");
-                indexElement.textContent = pokemonIdLabel;
+                indexElement.textContent = ("0000" + pokemonIdLabel).slice(-4);
 
                 const nameElement = document.createElement("p");
                 nameElement.textContent = capitalize(pokemon.name);
