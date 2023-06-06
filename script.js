@@ -111,7 +111,7 @@ const pokeRequest = (urlPokeRequest) => {
                                 image: data.sprites.front_default,
                                 evolutions: evolutions 
                             };
-                            showModal(pokemonInfo);
+                            showModal(pokemonInfo, pokemonIdLabel);
                         })
                         .catch(error => console.log(error));
                 });
@@ -222,7 +222,7 @@ function playPokemonSound(soundUrl) {
     audio.play();
 }
 
-function showModal(pokemon) {
+function showModal(pokemon, pokemonId) {
     const modal = document.getElementById("modal");
     const modalTitle = document.getElementById("modal-title");
     const modalType = document.getElementById("modal-type");
@@ -242,7 +242,8 @@ function showModal(pokemon) {
         modalType.appendChild(typeElement);
     }
     
-    modalTitle.textContent = "#" + pokemon.id + " " + capitalize(pokemon.name);
+    // modalTitle.textContent = "#" + pokemon.id + " " + capitalize(pokemon.name);
+    modalTitle.textContent = "#" + pokemonId + " " + capitalize(pokemon.name);
     
     modalHeight.textContent = pokemon.height/10 + " m";
     modalWeight.textContent = pokemon.weight/10 + " kg";

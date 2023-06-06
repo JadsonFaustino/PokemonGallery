@@ -52,10 +52,12 @@ h1 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 #pages-box button{
-    margin: 0px 5px;
+    /* margin: 0px 5px; */
     padding: 5px 10px;
     width: 50px;
     border: none;
@@ -182,6 +184,8 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    width: 100%;
+    max-width: 300px;
 }
 
 .modal-info .modal-left p{
